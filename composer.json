@@ -1,0 +1,26 @@
+{
+ "name": "vendor/fatousha",
+    "autoload": {
+        "psr-4": {
+            "DialibatoulMarakhib\\Maxit\\": "src/",
+            "App\\Controllers\\": "src/controllers/",
+            "App\\Entity\\": "src/entity/",
+            "App\\Repository\\": "src/repository/",
+            "App\\Services\\": "src/services/",
+            "App\\Routes\\": "src/routes/",
+            "App\\Config\\": "app/config/",
+            "App\\Core\\": "app/core/",
+            "App\\Abstract\\": "app/core/abstract/",
+            "App\\Middlewares\\": "app/core/middlewares/"
+        }
+    },
+   "authors": [
+        {
+            "name": "fatousha",
+            "email": "wadefatoush27@gmail.com"
+        }],
+    "require": {
+        "twilio/sdk": "^8.6",
+  "vlucas/phpdotenv": "^5.6"
+    }
+}
