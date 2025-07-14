@@ -101,18 +101,15 @@ class SecurityController extends AbstractController
                 return;
             }
 
-            // Connexion réussie, stocker l'utilisateur en session
             $this->session->set('user', $user);
-            $this->session->set('user_id', $user->getTelephone()); // Utiliser le téléphone comme identifiant
+            $this->session->set('user_id', $user->getTelephone()); 
             $this->session->set('logged_in', true);
             
-            // Assurer que la redirection fonctionne même si BASE_URL n'est pas défini
             $baseUrl = getenv('BASE_URL') ?: '';
             header('Location: ' . $baseUrl . '/accueil');
             exit;
             
         } catch (\Exception $e) {
-            // En cas d'erreur technique, afficher un message d'erreur général
             error_log('Erreur lors de la connexion: ' . $e->getMessage());
             Validator::addError('global', 'Une erreur est survenue lors de la connexion. Veuillez réessayer.');
             $this->session->set('flash_errors', Validator::getErrors());
@@ -127,13 +124,11 @@ class SecurityController extends AbstractController
 
     public function store(): void 
     {
-        // Si ce n'est pas une soumission de formulaire, rediriger vers la page d'inscription
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
             $this->renderHtml('inscription');
             return;
         }
         
-        // Réinitialiser le validateur pour éviter les erreurs résiduelles
         Validator::reset();
         
         $formData = [
@@ -149,7 +144,6 @@ class SecurityController extends AbstractController
             'photoVerso' => null
         ];
         
-        // Validation des champs obligatoires uniquement lors de la soumission du formulaire
         if (empty($formData['login'])) {
             Validator::addError('login', 'Le login est obligatoire');
         }
@@ -180,7 +174,6 @@ class SecurityController extends AbstractController
             Validator::addError('telephone', 'Format de téléphone invalide');
         }
         
-        // Validation des photos
         $photoRecto = Upload::save($_FILES['photorecto'] ?? null, 'uploads/cni');
         $photoVerso = Upload::save($_FILES['photoverso'] ?? null, 'uploads/cni');
         

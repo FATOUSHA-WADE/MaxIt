@@ -27,13 +27,10 @@
 <body class="bg-gray-50 min-h-screen">
   
 
-    <!-- Main content -->
     <div class="ml-64 p-6">
-        <!-- Header -->
         <div class="flex justify-between items-center mb-6">
             <div></div>
             <div class="flex items-center space-x-6">
-                <!-- Barre de recherche centrée -->
                 <div class="relative">
                     <input type="text" placeholder="Rechercher..." class="bg-white rounded-full px-10 py-2 w-64 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-500">
                     <i class='bx bx-search absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400'></i>
@@ -53,9 +50,7 @@
         </div>
 
         <div class="max-w-6xl mx-auto">
-            <!-- Main dashboard -->
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
-                <!-- Balance Card -->
                 <div class="balance-card rounded-xl p-6 text-white card-shadow">
                     <div class="flex items-center mb-2">
                         <i class='bx bx-credit-card text-2xl text-orange-500 mr-3'></i>
@@ -68,7 +63,6 @@
                     </div>
                 </div>
 
-                <!-- Transactions this month -->
                 <div class="bg-white rounded-xl p-6 card-shadow">
                     <div class="flex items-center justify-between mb-4">
                         <div>
@@ -82,7 +76,6 @@
                     <div class="text-sm text-green-600">+12% par rapport au mois dernier</div>
                 </div>
 
-                <!-- Active accounts -->
                 <div class="bg-white rounded-xl p-6 card-shadow">
                     <div class="flex items-center justify-between mb-4">
                         <div>
@@ -97,16 +90,11 @@
                 </div>
             </div>
 
-            <!-- Actions and Transactions -->
             <div class="grid grid-cols-1 lg:grid-cols-1 gap-6">
-                <!-- Left sidebar actions -->
                 <div class="space-y-4">
-                    <!-- Ces boutons sont maintenant dans la sidebar principale -->
                 </div>
 
-                <!-- Main transactions area -->
                 <div class="lg:col-span-1">
-                    <!-- Add secondary account button -->
                     <div class="flex justify-between items-center mb-6">
                         <div></div>
                         <button class="orange-gradient text-white rounded-lg px-4 py-2 font-medium hover:opacity-90 transition-opacity">
@@ -114,7 +102,6 @@
                         </button>
                     </div>
 
-                    <!-- Transactions history -->
                     <div class="bg-white rounded-xl p-6 card-shadow">
                         <div class="flex items-center justify-between mb-6">
                             <h3 class="text-lg font-semibold text-gray-800">Historique des transactions</h3>

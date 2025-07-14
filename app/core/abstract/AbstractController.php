@@ -27,8 +27,6 @@ abstract class AbstractController{
         $layoutPath = dirname(__DIR__, 3) . '/templates/layout/partials/sidebar.layout.php';   
     if (in_array($view, ['accueil', 'inscription'])) {
         require_once $layoutPath;
-    } else {
-        echo $contentForLayout;
     }
         extract($data);
         ob_start();

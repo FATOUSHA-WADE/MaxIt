@@ -33,7 +33,7 @@
             width: 200px;
             height: 200px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.05);
+            background:rgb(253, 145, 4);
             bottom: -100px;
             right: -100px;
         }
@@ -43,7 +43,7 @@
             width: 100px;
             height: 100px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.06);
             top: 20%;
             left: 5%;
         }
@@ -68,7 +68,7 @@
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
+            background:rgb(250, 153, 7);
             bottom: 10%;
             left: 20%;
         }
@@ -78,7 +78,7 @@
             width: 30px;
             height: 30px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.12);
+            background: #ffffff;
             bottom: 15%;
             right: 30%;
         }
@@ -88,7 +88,7 @@
             width: 20px;
             height: 20px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
+            background: #ffffff;
             top: 70%;
             right: 20%;
         }
@@ -156,7 +156,6 @@
 </head>
 
 <body class="h-screen w-screen flex items-center justify-center relative">
-    <!-- Floating circles -->
     <div class="decorative-circles absolute inset-0">
         <div class="circle-small"></div>
         <div class="circle-medium"></div>
@@ -165,7 +164,6 @@
         <div class="circle-micro"></div>
     </div>
     <div class="glass-card rounded-3xl shadow-2xl p-8 w-full max-w-md mx-4 relative z-10">
-        <!-- Logo -->
         <div class="text-center mb-8">
             <div class="logo-container">
                 <span class="logo-text">Max It</span>
@@ -174,7 +172,6 @@
             <p class="text-gray-600 mt-2">Connectez-vous à votre compte max it</p>
         </div>
 
-        <!-- Messages d'erreur et de succès -->
         <?php if (isset($success) && $success): ?>
             <div class="success-message px-4 py-3 rounded-lg mb-6">
                 <?= htmlspecialchars($success) ?>
@@ -187,7 +184,6 @@
             </div>
         <?php endif; ?>
 
-        <!-- Affichage des erreurs de validation -->
         <?php if (isset($errors) && is_array($errors) && !empty($errors)): ?>
             <div class="error-message px-4 py-3 rounded-lg mb-6">
                 <?php if (isset($errors['global'])): ?>
@@ -206,7 +202,6 @@
             </div>
         <?php endif; ?>
 
-        <!-- Formulaire de connexion -->
         <form method="POST" action="/login" class="space-y-6">
             <div>
                 <label class="block text-sm font-medium text-orange-500 mb-2">Numéro Téléphone</label>
