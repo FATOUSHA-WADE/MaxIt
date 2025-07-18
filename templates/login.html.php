@@ -11,7 +11,7 @@
        
     <style>
         body {
-           background: linear-gradient(to bottom, #ff8c42 0%, rgb(24, 16, 13) 70%, #000000 100%);
+           background: linear-gradient(to bottom, rgba(250, 122, 18, 1), #ff7842ff 0%, #000000 100%);
             position: relative;
             overflow: hidden;
         }

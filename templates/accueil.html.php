@@ -27,6 +27,7 @@
 <body class="bg-gray-50 min-h-screen">
   
 
+
     <div class="ml-64 p-6">
         <div class="flex justify-between items-center mb-6">
             <div></div>
@@ -97,9 +98,9 @@
                 <div class="lg:col-span-1">
                     <div class="flex justify-between items-center mb-6">
                         <div></div>
-                        <button class="orange-gradient text-white rounded-lg px-4 py-2 font-medium hover:opacity-90 transition-opacity">
+                        <a href="/ajouterCompteSecond" class="orange-gradient text-white rounded-lg px-4 py-2 font-medium hover:opacity-90 transition-opacity">
                             Ajouter Compte Secondaire
-                        </button>
+                        </a>
                     </div>
 
                     <div class="bg-white rounded-xl p-6 card-shadow">
@@ -150,11 +151,11 @@
                                     $count++;
                                 endforeach;
                             else:
-                                // Données simulées si pas de transactions
                                 $sampleTransactions = [
                                     ['type' => 'depot', 'montant' => 25000, 'date' => '16/01/2024'],
-                                    ['type' => 'retrait', 'montant' => 8000, 'date' => '14/01/2024'],
-                                    ['type' => 'retrait', 'montant' => 16000, 'date' => '14/01/2024']
+                                    ['type' => 'retrait', 'montant' => 10000, 'date' => '14/01/2024'],
+                                    ['type' => 'retrait', 'montant' => 16000, 'date' => '14/01/2024'],
+                                    ['type' => 'depot', 'montant' => 5000, 'date' => '13/01/2024']
                                 ];
                                 
                                 foreach ($sampleTransactions as $transaction):
@@ -178,7 +179,7 @@
                                     </div>
                                     <div class="text-right">
                                         <div class="font-semibold <?= $amountClass ?>">
-                                            <?= $amountPrefix ?><?= number_format($transaction['montant'], 0, ',', ' ') ?> FCFA
+                                            <?= $amountPrefix ?><?= number_format($transaction['montant'],0 , ',', ' ') ?> FCFA
                                         </div>
                                         <div class="text-sm text-gray-500"><?= $transaction['date'] ?></div>
                                     </div>

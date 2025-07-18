@@ -5,19 +5,14 @@ namespace App\Repository;
 
 use App\Entity\CompteEntity;
 use App\Abstract\AbstractRepository;
+use App\Config\Core\Database;
 
 class CompteRepository extends AbstractRepository
 {
-    /**
-     * Récupère les comptes associés à une personne
-     * 
-     * @param string $personneId ID (téléphone) de la personne
-     * @return array Liste des comptes associés à la personne
-     */
+  
     public function findByPersonne($personneId): array
     {
         try {
-            // S'assurer que personneId est bien une chaîne de caractères
             $personneId = (string) $personneId;
             
             error_log("Recherche des comptes pour la personne avec ID/téléphone: " . $personneId);
@@ -59,4 +54,29 @@ class CompteRepository extends AbstractRepository
             return null;
         }
     }
+
+    public function update(CompteEntity $compte): bool
+    {
+        try {
+            $data = [
+                'telephone' => $compte->getTelephone(),
+                'solde' => $compte->getSolde(),
+                'personne_telephone' => $compte->getPersonneTelephone(),
+                'typecompte' => $compte->getTypeCompte()
+            ];
+            
+            $setClause = implode(', ', array_map(fn($key) => "\"$key\" = :$key", array_keys($data)));
+            $sql = "UPDATE compte SET $setClause WHERE \"telephone\" = :telephone";
+            
+            error_log("SQL de mise à jour du compte: $sql");
+            
+            $stmt = $this->pdo->prepare($sql);
+            return $stmt->execute($data);
+        } catch (\PDOException $e) {
+            error_log("Erreur lors de la mise à jour du compte : " . $e->getMessage());
+            return false;
+        }
+    }
+
+
 }

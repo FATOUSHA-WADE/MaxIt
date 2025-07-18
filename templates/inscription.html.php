@@ -254,7 +254,6 @@
                     </div>
                 </div>
 
-                <!-- Documents d'identité -->
                 <div class="form-section">
                     <div class="section-title">
                         <i class='bx bx-id-card'></i>
@@ -269,7 +268,7 @@
                             <div class="text-red-600 text-sm mt-1"><?= htmlspecialchars($errors['numeroIdentite']) ?></div>
                         <?php endif; ?>
                     </div>
-                    
+                       
                     <div class="grid grid-cols-2 gap-6">
                         <div>
                             <label class="block text-gray-700 font-medium mb-2">Photo resto de la carte d'identité *</label>

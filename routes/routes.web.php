@@ -11,7 +11,9 @@ return $routes = [
     '/login' => [
         'controller' => SecurityController::class,
         'action' => 'index',
-        'method' => 'GET'
+        'method' => 'GET',
+        'middlewares' => ['auth']
+
     ],
     '/login' => [
         'controller' => SecurityController::class,
@@ -31,13 +33,29 @@ return $routes = [
     ],
     '/inscription' => [
         'controller' => SecurityController::class,
+         'middlewares' => ['auth'],
         'action' => 'create',
-        'method' => 'GET'
+        'method' => 'GET',
+        'middlewares' => ['PasswordHashMiddleware']
+
     ],
     '/inscription' => [
         'controller' => SecurityController::class,
         'action' => 'store',
         'method' => 'POST',
-        'middlewares' => ['PasswordHashMiddleware']
+        'middlewares' => ['auth']
+
+    ],
+    '/ajouterCompteSecond' => [
+        'controller' => SecurityController::class,
+        'action' => 'update',
+        'method' => 'GET',
+        'middlewares' => ['auth']
+    ],
+    '/ajouterCompteSecond' => [
+        'controller' => SecurityController::class,
+        'action' => 'update',
+        'method' => 'POST',
+        'middlewares' => ['auth']
     ]
 ];

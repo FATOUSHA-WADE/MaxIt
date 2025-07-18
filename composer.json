@@ -2,7 +2,7 @@
  "name": "vendor/fatousha",
     "autoload": {
         "psr-4": {
-            "DialibatoulMarakhib\\Maxit\\": "src/",
+            "fatousha\\Maxit\\": "src/",
             "App\\Controllers\\": "src/controllers/",
             "App\\Entity\\": "src/entity/",
             "App\\Repository\\": "src/repository/",

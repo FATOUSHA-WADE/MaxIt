@@ -40,7 +40,6 @@ class TransactionRepository
     public function findRecentByPersonne($personneTelephone, int $limit = 10): array
     {
         try {
-            // S'assurer que personneTelephone est bien une chaîne de caractères
             $personneTelephone = (string) $personneTelephone;
             
             $sql = "SELECT t.* FROM transactions t

@@ -9,7 +9,7 @@ class Auth
     public function __invoke()
     {
         Session::getInstance();
-        if (empty(Session->get('user'))) {
+    if (empty(Session::get('user'))) {
             header('Location: /login');
             exit;
         }

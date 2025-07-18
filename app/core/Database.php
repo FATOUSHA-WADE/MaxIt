@@ -37,8 +37,8 @@ class Database
                 $host = getenv('DB_HOST') ?? 'localhost';
                 $port = getenv('DB_PORT') ?? '5432';
                 $dbname = getenv('DB_NAME') ?? 'maxit';
-                $username = getenv('DB_USER') ?? 'postgres';
-                $password = getenv('DB_PASS') ?? 'Marakhib';
+                $username = getenv('DB_USER') ?? 'max';
+                $password = getenv('DB_PASS') ?? 'max123';
                 
                 if (empty($host) || empty($dbname) || empty($username)) {
                     throw new \RuntimeException("Variables d'environnement de base de données manquantes");

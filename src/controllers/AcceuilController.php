@@ -20,30 +20,24 @@ class AcceuilController extends AbstractController
                 exit;
             }
             
-            // Récupération du téléphone de l'utilisateur (qui est notre clé primaire)
             $telephone = $session->get('user_id');
             
-            // Si user_id n'existe pas dans la session, on essaie de le récupérer depuis l'objet user
             if (!$telephone && $user && method_exists($user, 'getTelephone')) {
                 $telephone = $user->getTelephone();
                 
-                // Log pour le débogage
                 error_log('Téléphone récupéré de l\'objet user: ' . ($telephone ?: 'non disponible'));
                 
-                // Stocke le téléphone dans la session pour les prochaines utilisations
                 if ($telephone) {
                     $session->set('user_id', $telephone);
                 }
             }
             
-            // Vérification que le téléphone est bien défini
             if (empty($telephone)) {
                 error_log('Erreur: Téléphone utilisateur non trouvé dans la session ou l\'objet utilisateur');
                 header('Location: /login');
                 exit;
             }
             
-            // S'assurer que le téléphone est bien une chaîne de caractères
             $telephone = (string) $telephone;
             
             $compteRepository = $app->getDependency('compteRepository');
@@ -63,7 +57,6 @@ class AcceuilController extends AbstractController
             } catch (\Exception $e) {
                 error_log('Erreur lors de la récupération des comptes: ' . $e->getMessage());
                 error_log($e->getTraceAsString());
-                // Continuer l'exécution avec un tableau vide
             }
             
             $transactions = [];
@@ -77,7 +70,6 @@ class AcceuilController extends AbstractController
             } catch (\Exception $e) {
                 error_log('Erreur lors de la récupération des transactions: ' . $e->getMessage());
                 error_log($e->getTraceAsString());
-                // Continuer l'exécution avec un tableau vide
             }
             
             $this->renderHtml('accueil', [

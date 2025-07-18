@@ -25,7 +25,7 @@ abstract class AbstractController{
     public function renderHtml(string $view, $data = [])
     {
         $layoutPath = dirname(__DIR__, 3) . '/templates/layout/partials/sidebar.layout.php';   
-    if (in_array($view, ['accueil', 'inscription'])) {
+    if (in_array($view, ['accueil', 'inscription', 'ajouterCompteSecond'])) {
         require_once $layoutPath;
     }
         extract($data);

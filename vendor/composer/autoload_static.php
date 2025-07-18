@@ -13,6 +13,10 @@ class ComposerStaticInit365bd9f6a481d6d548d08b008340a2c1
     );
 
     public static $prefixLengthsPsr4 = array (
+        'f' => 
+        array (
+            'fatousha\\Maxit\\' => 15,
+        ),
         'T' => 
         array (
             'Twilio\\' => 7,
@@ -34,7 +38,6 @@ class ComposerStaticInit365bd9f6a481d6d548d08b008340a2c1
         'D' => 
         array (
             'Dotenv\\' => 7,
-            'DialibatoulMarakhib\\Maxit\\' => 26,
         ),
         'A' => 
         array (
@@ -51,6 +54,10 @@ class ComposerStaticInit365bd9f6a481d6d548d08b008340a2c1
     );
 
     public static $prefixDirsPsr4 = array (
+        'fatousha\\Maxit\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src',
+        ),
         'Twilio\\' => 
         array (
             0 => __DIR__ . '/..' . '/twilio/sdk/src/Twilio',
@@ -78,10 +85,6 @@ class ComposerStaticInit365bd9f6a481d6d548d08b008340a2c1
         'Dotenv\\' => 
         array (
             0 => __DIR__ . '/..' . '/vlucas/phpdotenv/src',
-        ),
-        'DialibatoulMarakhib\\Maxit\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/src',
         ),
         'App\\Services\\' => 
         array (

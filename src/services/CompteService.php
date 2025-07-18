@@ -18,5 +18,8 @@ class CompteService
     {
         $compte = $this->compteRepository->findByPersonne($telephone);
         return $compte ? $compte['solde'] : 0.0;
+
     }
+
+
 }

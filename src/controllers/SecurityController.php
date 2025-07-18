@@ -22,18 +22,14 @@ class SecurityController extends AbstractController
 
     public function create(): void
     {
-        // Réinitialiser le validateur pour éviter les erreurs résiduelles à l'affichage initial
         Validator::reset();
         
-        // Récupérer les anciennes valeurs et erreurs s'il y en a
         $old = $this->session->get('old_input') ?? [];
         $errors = $this->session->get('flash_errors') ?? [];
         
-        // Vider les valeurs en session après les avoir récupérées
         $this->session->set('old_input', null);
         $this->session->set('flash_errors', null);
         
-        // Afficher le formulaire avec les données et erreurs récupérées
         $this->renderHtml('inscription', [
             'old' => $old,
             'errors' => $errors
@@ -42,17 +38,13 @@ class SecurityController extends AbstractController
 
     public function login()
     {
-        // Si ce n'est pas une soumission de formulaire, afficher simplement le formulaire
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-            // Récupérer les anciennes valeurs et erreurs s'il y en a
             $old = $this->session->get('old_input') ?? [];
             $errors = $this->session->get('flash_errors') ?? [];
             
-            // Vider les valeurs en session après les avoir récupérées
             $this->session->set('old_input', null);
             $this->session->set('flash_errors', null);
             
-            // Afficher le formulaire avec les données et erreurs récupérées
             $this->renderHtml('login', [
                 'old' => $old,
                 'errors' => $errors
@@ -60,7 +52,6 @@ class SecurityController extends AbstractController
             return;
         }
 
-        // Réinitialiser le validateur
         Validator::reset();
         
         $formData = [
@@ -68,7 +59,6 @@ class SecurityController extends AbstractController
             'password' => trim($_POST['password'] ?? '')
         ];
         
-        // Validation des champs
         if (empty($formData['login'])) {
             Validator::addError('login', 'Le login est obligatoire');
         }
@@ -189,9 +179,7 @@ class SecurityController extends AbstractController
             $formData['photoVerso'] = $photoVerso;
         }
         
-        // Vérification des validations
         if (!Validator::isValid()) {
-            // Stockage des erreurs et des données en session
             $this->session->set('flash_errors', Validator::getErrors());
             $this->session->set('old_input', $formData);
             $this->renderHtml('inscription');
@@ -223,20 +211,27 @@ class SecurityController extends AbstractController
         $this->session->set('old_input', $formData);
         $this->renderHtml('inscription');
     }
+   
 
     public function show():void {}
 
-    public function update():void {}
+    public function update():void {
+        Validator::reset();
+        
+        $this->renderHtml('ajouterCompteSecond', [
+            'nom' => '',
+            'numero' => '',
+            'message' => ''
+        ]);
+    }
 
     public function edit():void {}
     public function destroy():void {}
 
     public function index():void
     {
-        // Réinitialiser le validateur pour éviter les erreurs résiduelles à l'affichage initial
         Validator::reset();
         
-        // Afficher simplement le formulaire de login sans erreurs
         $this->renderHtml('login');
     }
 
